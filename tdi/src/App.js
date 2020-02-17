@@ -1,100 +1,59 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Accueil from './Components/Accueil';
+import Configuration from './Components/Configuration';
+import Apropos from './Components/Apropos';
 import {
     BrowserRouter as Router,
     Switch,
     Route,
     Link
 } from "react-router-dom";
+import ReactDOM from 'react-dom'
+import { Provider } from 'react-redux'
+import store from './store'
+import { connect } from 'react-redux'
+import { increment, decrement, reset } from './actionCreators'
 
-var login = "";
+const rootElement = document.getElementById('root')
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  rootElement
+)
 
-export class Accueil extends React.Component{
-    constructor(props) {
-        super(props);
-    }
-    render() {
-        return (<p>Hello {login}, je suis la page d accueil</p>);
-    }
+const mapStateToProps = (state /*, ownProps*/) => {
+  return {
+    counter: state.counter
+  }
 }
 
+const mapDispatchToProps = { increment, decrement, reset }
 
-export class Configuration extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {value: ''};
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Counter)
 
-    handleChange(event) {
-        this.setState({value: event.target.value});
-        login = event.target.value;
-    }
-
-    handleSubmit(event) {
-        alert('Le nom a été soumis : ' + this.state.value);
-        event.preventDefault();
-    }
-
-    render() {
-        return (
-            <form onSubmit={this.handleSubmit}>
-            <label>
-            Nom :
-                <input type="text" placeholder="votre nom" value={this.state.value} onChange={this.handleChange} />
-            </label>
-            <input type="submit" value="Envoyer" />
-            </form>
-    );
-    }
-}
-
-
-export class Apropos extends React.Component{
-    constructor(props) {
-        super(props);
-    }
-    render() {
-        return (<p>Notre équipe est composé d'Hugo, Florent, Erwan et Gwenael</p>);
-    }
-}
-
-
-
-
-function App() {
+export default class App extends React.Component{
+  login = "";
+  render() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer" >
-          Learn React
-        </a>
-      </header>
-
         <body>
-        <h1> Our App</h1>
-        <BasicExample/>
+        <h1>Our App</h1>
+        <Choix/>
         <br/>
+        
         <br/>
         </body>
     </div>
-  );
+    );
+  }
 }
 
-
-
-export function BasicExample() {
+export function Choix() {
     return (
         <Router>
             <div>
@@ -122,5 +81,10 @@ export function BasicExample() {
     );
 }
 
+/*export function TD2() {
+  return (
+    <Redux>
 
-export default App;
+    </Redux>
+  );
+}*/
