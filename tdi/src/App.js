@@ -15,9 +15,8 @@ import Game from './Components/Game';
 export default class App extends React.Component {
   constructor(props){
     super(props);
-
     this.state = {
-      nameState : '',
+      nameState: ''
     };
   }
 
@@ -55,7 +54,7 @@ export default class App extends React.Component {
               <Accueil name={this.state.nameState}/>
             </Route>
             <Route path="/about">
-              <Configuration name={name => this.setName(name)} />
+              <Configuration name={name => this.setName(name)}/>
             </Route>
             <Route path="/game">
               <Game />
