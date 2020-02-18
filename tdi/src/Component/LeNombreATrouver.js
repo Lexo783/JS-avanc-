@@ -32,8 +32,6 @@ export class LeNombreATrouver extends React.Component
     }
 
 
-
-
     delScore(index) {
         console.log(this);
         this.props.delScore(index);
@@ -66,10 +64,12 @@ export class LeNombreATrouver extends React.Component
         return nb;
     }
 
+
     lose(){
         console.log("perdu");
         this.restart();
     }
+
 
     restart(){
         this.addScore();
@@ -80,9 +80,9 @@ export class LeNombreATrouver extends React.Component
         this.setState({...this.state, content : ""});
     }
 
+
     render(){
         const { scores } = this.props;
-        const { selectId } = this.state;
 
         return (
             <div>
@@ -99,31 +99,11 @@ export class LeNombreATrouver extends React.Component
 
                 <table className="style"> <thead><tr><th>Nom</th> <th>score</th> <th>nb a trouver</th> </tr></thead><tbody>
                 {scores.map((score , index) => {
-                    if (index === selectId) {
-                        return (
-                            <tr key={index}><td colSpan="4">
-                                <form onSubmit={ event => this.delScore(event, index) }>
-                                    <table><tbody><tr>
-                                        <td><label>
-                                            <input type="text" defaultValue={score.name} />
-                                        </label></td>
-                                        <td><label>
-                                            <input type="number" defaultValue={score.nbTry} />
-                                        </label></td>
-                                        <td><label>
-                                            <input type="number" defaultValue={score.nbToFind} />
-                                        </label></td>
-                                        <td><button>Edit</button></td>
-                                    </tr></tbody></table>
-                                </form>
-                            </td></tr>
-                        );
-                    }
                     return (
                         <tr key={index}>
-                            <td>{scores.name}</td>
-                            <td>{scores.nbTry}</td>
-                            <td>{scores.nbToFind}</td>
+                            <td>{score.name}</td>
+                            <td>{score.nbTry}</td>
+                            <td>{score.nbToFind}</td>
                             <td>
                                 <button onClick={() => this.delScore(index)}>del</button>
                                 <button onClick={() => this.delScore(index)}>Delete</button>
