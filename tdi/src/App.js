@@ -7,10 +7,10 @@ import {
   Link
 } from "react-router-dom";
 
-import Accueil from './Component/Accueil';
-import Configuration from './Component/Configuration';
-import Apropos from './Component/User';
-import Game from './Component/Game';
+import Accueil from './Components/Accueil';
+import Configuration from './Components/Configuration';
+import Apropos from './Components/Apropos';
+import Game from './Components/Game';
 
 export default class App extends React.Component {
   constructor(props){
