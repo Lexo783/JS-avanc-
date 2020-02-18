@@ -28,7 +28,7 @@ export class LeNombreATrouver extends React.Component
             nbToFind : this.state.nbRand
         });
 
-        console.log("ajouté au score");
+        //console.log("ajouté au score");
     }
 
 
@@ -41,7 +41,7 @@ export class LeNombreATrouver extends React.Component
     number(event) {
         event.preventDefault();
         let nbGiven = parseInt(event.target[0].value);
-
+        console.log(""  + this.state.nbRand);
         if (nbGiven === this.state.nbRand) {
             this.compteur ++;
             console.log("find: " + this.compteur);
@@ -67,6 +67,7 @@ export class LeNombreATrouver extends React.Component
 
     lose(){
         console.log("perdu");
+        this.compteur =-1;
         this.restart();
     }
 
@@ -94,6 +95,7 @@ export class LeNombreATrouver extends React.Component
                 </label>
                 <button>valider</button>
                 <button onClick={() => this.lose()}>recommencer</button>/
+
                 <p>{this.state.content}</p>
             </form>
 
