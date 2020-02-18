@@ -17,21 +17,14 @@ export default class App extends React.Component {
     super(props);
 
     this.state = {
-      nameState : '',
-      nbrRandom: -1
+      nameState : ''
     };
   }
 
   setName(name) {
     console.log('App', name);
     this.setState({
-      ...this.state,nameState:name
-    })
-  }
-  setNumber(nbr){
-    console.log('app',nbr)
-    this.setState({
-      ...this.state,nbrRandom:nbr
+      ...this.state, nameState: name
     })
   }
 
@@ -69,7 +62,7 @@ export default class App extends React.Component {
               <Apropos />
             </Route>
             <Route path="/tdII">
-              <TdII nbr={nbr => this.setNumber(this.state.nbrRandom)} />
+              <TdII />
             </Route>
           </Switch>
         </div>

@@ -5,36 +5,45 @@ export default class tdII extends React.Component
     constructor(props){
         super(props);
         this.randomNBR = this.setRamdom();
-        this.content = <p></p>;
         this.compteur = 0;
 
+        this.state = {
+            content: ''
+        }
     }
 
     setNumber(event){
         event.preventDefault();
-        var parseEvent = parseInt(event.target[0].value);
-        this.props.nbr(parseEvent);
+        let parseEvent = parseInt(event.target[0].value);
         if(parseEvent<0 || parseEvent>100)
         {
             console.log("abandon");
             this.compteur = -1;
-            this.content = <p>tu abandonnes</p>
+            this.setState({
+                ...this.state, content: 'Tu abandonnes.'
+            });
         }
         else if(parseEvent==this.randomNBR){
             console.log("trouvé");
-            this.content = <p>tu as trouvé, tu as essayé {this.compteur} fois</p>
+            this.setState({
+                ...this.state, content: 'tu as trouvé, tu as essayé ' + this.compteur + ' fois'
+            });
             // enregistrer score dans la database 
             // restart();
         }
         else if(parseEvent<this.randomNBR){
             console.log("en dessous");
             this.compteur ++;
-            this.content = <p>c'est en dessous , tu as essayé {this.compteur} fois</p>
+            this.setState({
+                ...this.state, content: 'c\'est au dessous, tu as essayé ' + this.compteur + ' fois'
+            });
         }
         else if(parseEvent>this.randomNBR){
             console.log("au dessus");
             this.compteur ++;
-            this.content = <p>c'est au dessus, tu as essayé {this.compteur} fois</p>
+            this.setState({
+                ...this.state, content: 'c\'est au dessus, tu as essayé ' + this.compteur + ' fois'
+            });
         }
 
     }
@@ -46,8 +55,16 @@ export default class tdII extends React.Component
         return nbr;
     }
 
+    score()
+    {
+        
+    }
+
     restart()
     {
+        this.setState({
+            ...this.state,content: ''
+        })
         this.randomNBR = this.setRamdom();
     }
 
@@ -63,7 +80,8 @@ export default class tdII extends React.Component
                     </label>
                     <button>Let's try</button>
                 </form>
-                {this.content}
+                <button onClick={() => this.restart()}>AGAIN</button>
+                {this.state.content}
             </div>
         );
     }
