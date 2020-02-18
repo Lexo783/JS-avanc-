@@ -25,6 +25,7 @@ export default function reducers(state = initialState, action) {
         case ADD_SCORE:
             return { ...state, scores: [ ...state.scores, action.score ] };
 
+
         case DEL_SCORE:
             if (arrayHasIndex(state.scores, action.index)) {
                 return { ...state, scores: [ ...state.scores.filter((score, index) => index !== action.index) ] };

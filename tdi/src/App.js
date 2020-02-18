@@ -3,6 +3,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import reducer from './redux/reducers'
+
 import './App.css';
 
 import {
@@ -22,7 +23,6 @@ import {
   addScore,
   delScore
 } from './redux/actions';
-
 
 const store = createStore(reducer);
 
@@ -47,7 +47,9 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <Router>
+        <Provider store={store}>
+
+        <Router>
         <div>
           <nav>
             <ul>
@@ -79,11 +81,12 @@ export default class App extends React.Component {
               <Apropos />
             </Route>
             <Route path="/leNbATrouver">
-              <LeNombreATrouver />
+              <LeNombreATrouver name={this.state.nameState}/>
             </Route>
           </Switch>
         </div>
       </Router>
+        </Provider>
     );
   }
 }
