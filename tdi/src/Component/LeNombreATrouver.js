@@ -8,10 +8,11 @@ export class LeNombreATrouver extends React.Component
     constructor(props) {
         super(props);
         this.compteur = 0;
+        this.nbRand = this.generateRand();
 
         //les states sont les seuls éléments destiné a changer graphiquement
         this.state= {
-            nbRand : this.generateRand(),
+            //nbRand : this.generateRand(),
             content : "",
             name : this.props.name,
             scores : []
@@ -21,11 +22,11 @@ export class LeNombreATrouver extends React.Component
 
 
     addScore(){
-        console.log(""+ this.state.name + "  |  " + this.compteur + "  : "  + this.state.nbRand);
+        console.log(""+ this.state.name + "  |  " + this.compteur + "  : "  + this.nbRand);
         this.props.addScore({
             name : this.state.name,
             nbTry : this.compteur,
-            nbToFind : this.state.nbRand
+            nbToFind : this.nbRand
         });
 
         //console.log("ajouté au score");
@@ -41,17 +42,17 @@ export class LeNombreATrouver extends React.Component
     number(event) {
         event.preventDefault();
         let nbGiven = parseInt(event.target[0].value);
-        console.log(""  + this.state.nbRand);
-        if (nbGiven === this.state.nbRand) {
+        console.log(""  + this.nbRand);
+        if (nbGiven === this.nbRand) {
             this.compteur ++;
             console.log("find: " + this.compteur);
             this.setState({...this.state, content : "vous avez trouvé aprés " + this.compteur + " essai"});
             this.restart();
-        } else if (nbGiven > this.state.nbRand) {
+        } else if (nbGiven > this.nbRand) {
             this.compteur ++;
             console.log("en dessous" + this.compteur);
             this.setState({...this.state, content : "vous avez fait " + this.compteur + " essai"});
-        } else if (nbGiven < this.state.nbRand) {
+        } else if (nbGiven < this.nbRand) {
             this.compteur ++;
             console.log("au dessus");
             this.setState({...this.state, content : "vous avez fait " + this.compteur + " essai"});
@@ -76,7 +77,8 @@ export class LeNombreATrouver extends React.Component
         this.addScore();
         //save dans database avec -1
 
-        this.setState({...this.state, nbRand : this.generateRand()});
+        //this.setState({...this.state, nbRand : this.generateRand()});
+        this.nbRand = this.generateRand();
         this.compteur=0;
         this.setState({...this.state, content : ""});
     }
@@ -99,7 +101,8 @@ export class LeNombreATrouver extends React.Component
                 <p>{this.state.content}</p>
             </form>
 
-                <table className="style"> <thead><tr><th>Nom</th> <th>score</th> <th>nb a trouver</th> </tr></thead><tbody>
+                <table className="style"> <thead><tr><th>Nom</th> <th>score</th> <th>nb a trouver</th> </tr></thead>
+                <tbody>
                 {scores.map((score , index) => {
                     return (
                         <tr key={index}>
