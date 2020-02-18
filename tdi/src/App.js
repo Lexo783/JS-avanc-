@@ -1,90 +1,71 @@
 import React from 'react';
-import './App.css';
-import Accueil from './Components/Accueil';
-import Configuration from './Components/Configuration';
-import Apropos from './Components/Apropos';
+
 import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
 } from "react-router-dom";
-import ReactDOM from 'react-dom'
-import { Provider } from 'react-redux'
-import store from './store'
-import { connect } from 'react-redux'
-import { increment, decrement, reset } from './actionCreators'
 
-const rootElement = document.getElementById('root')
-ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
-  rootElement
-)
+import Accueil from './Component/Accueil';
+import Configuration from './Component/Configuration';
+import Apropos from './Component/User';
+import Game from './Component/Game';
 
-const mapStateToProps = (state /*, ownProps*/) => {
-  return {
-    counter: state.counter
+export default class App extends React.Component {
+  constructor(props){
+    super(props);
+
+    this.state = {
+      nameState : '',
+    };
   }
-}
 
-const mapDispatchToProps = { increment, decrement, reset }
+  setName(name) {
+    this.setState({
+      ...this.state,nameState:name
+    })
+  }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Counter)
-
-export default class App extends React.Component{
-  login = "";
   render() {
-  return (
-    <div className="App">
-        <body>
-        <h1>Our App</h1>
-        <Choix/>
-        <br/>
-        
-        <br/>
-        </body>
-    </div>
+    return (
+      <Router>
+        <div>
+          <nav>
+            <ul>
+              <li>
+                <Link to="/">Accueil</Link>
+              </li>
+              <li>
+                <Link to="/about">Configuration</Link>
+              </li>
+              <li>
+                <Link to="/game">Jeu</Link>
+              </li>
+              <li>
+                <Link to="/users">A propos</Link>
+              </li>
+            </ul>
+          </nav>
+
+          {/* A <Switch> looks through its children <Route>s and
+              renders the first one that matches the current URL. */}
+          <Switch>
+            <Route exact path="/">
+              <Accueil name={this.state.nameState}/>
+            </Route>
+            <Route path="/about">
+              <Configuration name={name => this.setName(name)} />
+            </Route>
+            <Route path="/game">
+              <Game />
+            </Route>
+            <Route path="/users">
+              <Apropos />
+            </Route>
+          </Switch>
+        </div>
+      </Router>
     );
   }
 }
-
-export function Choix() {
-    return (
-        <Router>
-            <div>
-                <ul>
-                    <li> <Link to="/">Accueil</Link> </li>
-                    <li> <Link to="/about">Configuration</Link> </li>
-                    <li> <Link to="/dashboard">A propos</Link> </li>
-                </ul>
-
-                <hr />
-
-                <Switch>
-                    <Route exact path="/">
-                        <Accueil />
-                    </Route>
-                    <Route path="/about">
-                        <Configuration />
-                    </Route>
-                    <Route path="/dashboard">
-                        <Apropos />
-                    </Route>
-                </Switch>
-            </div>
-        </Router>
-    );
-}
-
-/*export function TD2() {
-  return (
-    <Redux>
-
-    </Redux>
-  );
-}*/
