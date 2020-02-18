@@ -10,7 +10,7 @@ import {
 import Accueil from './Component/Accueil';
 import Configuration from './Component/Configuration';
 import Apropos from './Component/User';
-import tdII from './Component/tdII';
+import TdII from './Component/tdII';
 
 export default class App extends React.Component {
   constructor(props){
@@ -18,13 +18,12 @@ export default class App extends React.Component {
 
     this.state = {
       nameState : '',
-      nbrRandom: 0
+      nbrRandom: -1
     };
   }
 
   setName(name) {
     console.log('App', name);
-    this.test = name;
     this.setState({
       ...this.state,nameState:name
     })
@@ -32,7 +31,7 @@ export default class App extends React.Component {
   setNumber(nbr){
     console.log('app',nbr)
     this.setState({
-      ...this.state,nbrRandom: nbr
+      ...this.state,nbrRandom:nbr
     })
   }
 
@@ -49,7 +48,7 @@ export default class App extends React.Component {
                 <Link to="/about">Configuration</Link>
               </li>
               <li>
-                <Link to="/tdII"></Link>
+                <Link to="/tdII">Le TD II</Link>
               </li>
               <li>
                 <Link to="/users">A propos</Link>
@@ -70,7 +69,7 @@ export default class App extends React.Component {
               <Apropos />
             </Route>
             <Route path="/tdII">
-              <tdII setNumber nbr={nbr => this.setNumber(nbr)} />
+              <TdII nbr={nbr => this.setNumber(this.state.nbrRandom)} />
             </Route>
           </Switch>
         </div>

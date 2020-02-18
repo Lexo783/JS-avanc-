@@ -8,7 +8,7 @@ export default class Configuration extends React.Component {
     }
 
     render(){
-        return (
+        return(
             <div>
               <h2>Configuration</h2>
               <form onSubmit={ event => this.setName(event) }>
@@ -18,6 +18,6 @@ export default class Configuration extends React.Component {
                 <button>Envoyer</button>
               </form>
             </div>
-          );
+        );
     }
 }
