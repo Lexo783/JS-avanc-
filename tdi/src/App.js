@@ -1,5 +1,10 @@
 import React from 'react';
 
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import reducer from './redux/reducers'
+import './App.css';
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -10,14 +15,25 @@ import {
 import Accueil from './Component/Accueil';
 import Configuration from './Component/Configuration';
 import Apropos from './Component/User';
+import LeNombreATrouver from './Component/LeNombreATrouver';
+
+
+import {
+  addScore,
+  delScore
+} from './redux/actions';
+
+
+const store = createStore(reducer);
+
 
 export default class App extends React.Component {
   constructor(props){
     super(props);
-
-    this.state = {
+      this.state = {
       nameState : ''
     };
+
   }
 
   setName(name) {
@@ -27,6 +43,7 @@ export default class App extends React.Component {
       ...this.state,nameState:name
     })
   }
+
 
   render() {
     return (
@@ -43,6 +60,9 @@ export default class App extends React.Component {
               <li>
                 <Link to="/users">A propos</Link>
               </li>
+              <li>
+                <Link to="/leNbATrouver">Le nombre a trouver</Link>
+              </li>
             </ul>
           </nav>
 
@@ -57,6 +77,9 @@ export default class App extends React.Component {
             </Route>
             <Route path="/users">
               <Apropos />
+            </Route>
+            <Route path="/leNbATrouver">
+              <LeNombreATrouver />
             </Route>
           </Switch>
         </div>
