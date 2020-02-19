@@ -14,6 +14,7 @@ import {
   Link
 } from "react-router-dom";
 
+import Home from './Component/home'
 import Favoris from './Component/favoris'
 import Create from './Component/create'
 
