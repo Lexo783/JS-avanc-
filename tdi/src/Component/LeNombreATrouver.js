@@ -1,7 +1,10 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
 import { connect } from "react-redux";
 import { addScore } from "../redux/actions";
+
+import Score from "./Score";
+
 
 export class LeNombreATrouver extends React.Component
 {
@@ -54,13 +57,11 @@ export class LeNombreATrouver extends React.Component
 
     generateRand(){
         let nb = Math.floor(Math.random()*(101));
-        console.log(nb);
         return nb;
     }
 
 
     lose(){
-        console.log("perdu");
         this.compteur =-1;
         this.restart();
     }
@@ -68,7 +69,6 @@ export class LeNombreATrouver extends React.Component
 
     restart(){
         this.addScore();
-        //save dans database avec -1
 
         this.nbRand = this.generateRand();
         this.compteur=0;
@@ -77,43 +77,24 @@ export class LeNombreATrouver extends React.Component
 
 
     render(){
-        const { scores } = this.props;
-
         return (
             <div>
-            <h2>nombre a trouver</h2>
-            <p>vous devez trouver le nombre entre 0 et 100</p>
-            <form onSubmit={ event => this.number(event) }>
-                <label>
-                 proposition : <input type="text" />
-                </label>
-                <button>valider</button>
+                <h2>nombre a trouver</h2>
+                <p>vous devez trouver le nombre entre 0 et 100</p>
+                <form onSubmit={ event => this.number(event) }>
+                    <label>
+                        proposition : <input type="text" />
+                    </label>
+                    <button>valider</button>
 
-                <p>{this.state.content}</p>
-            </form>
-            <button onClick={() => this.lose()}>recommencer</button>
-
-
-                <table className="style"> <thead><tr><th>Nom</th> <th>score</th> <th>nb a trouver</th> </tr></thead>
-                <tbody>
-                {scores.map((score , index) => {
-                    return (
-                        <tr key={index}>
-                            <td>{score.name}</td>
-                            <td>{score.nbTry}</td>
-                            <td>{score.nbToFind}</td>
-                        </tr>
-                    );
-                })}
-                </tbody></table>
-
+                    <p>{this.state.content}</p>
+                </form>
+                <button onClick={() => this.lose()}>recommencer</button>
+                <Score/>
             </div>
-    );
-        //fonction fléché renvoie au parent (le bouton n'a pas de fonction lose)
+        );
     }
 }
-
-
 
 
 const mapStateToProps = state => {
