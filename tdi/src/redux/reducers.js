@@ -23,7 +23,7 @@ export default function reducers(state = initialState, action) {
     switch (action.type) {
 
         case ADD_SCORE:
-            return { ...state, scores: [ ...state.scores, action.score ] };
+            return { ...state, scores: action.score };
 
 
         case DEL_SCORE:
