@@ -23,6 +23,8 @@ export default function reducers(state = initialState, action) {
     switch (action.type) {
 
         case ADD_SCORE:
+            const newScore = state.scores.findIndex(item=> item.id===action.value.id);
+            //if ()
             return { ...state, scores: [ ...state.scores, action.score ] };
 
 

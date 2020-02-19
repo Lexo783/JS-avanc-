@@ -29,6 +29,22 @@ export class LeNombreATrouver extends React.Component
             nbToFind : this.nbRand
         });
 
+        /*
+        scores.map((score , index) => {
+            return score.nbTry;
+        }*/
+/*
+        const { scores } = this.props;
+
+        {scores.map((score , index) => {
+            return (
+                index
+                    score.nbToFind
+            );
+        })}
+
+*/
+
         //console.log("ajouté au score");
     }
 
@@ -51,11 +67,11 @@ export class LeNombreATrouver extends React.Component
         } else if (nbGiven > this.nbRand) {
             this.compteur ++;
             console.log("en dessous" + this.compteur);
-            this.setState({...this.state, content : "vous avez fait " + this.compteur + " essai"});
+            this.setState({...this.state, content : "c'est plus petit , vous avez fait " + this.compteur + " essai"});
         } else if (nbGiven < this.nbRand) {
             this.compteur ++;
             console.log("au dessus");
-            this.setState({...this.state, content : "vous avez fait " + this.compteur + " essai"});
+            this.setState({...this.state, content : "c'est plus grand vous avez fait " + this.compteur + " essai"});
         }
     }
 
@@ -96,7 +112,7 @@ export class LeNombreATrouver extends React.Component
                  proposition : <input type="text" />
                 </label>
                 <button>valider</button>
-                <button onClick={() => this.lose()}>recommencer</button>/
+                <button onClick={() => this.lose()}>recommencer</button>
 
                 <p>{this.state.content}</p>
             </form>
