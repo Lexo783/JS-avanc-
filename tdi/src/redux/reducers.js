@@ -23,9 +23,23 @@ export default function reducers(state = initialState, action) {
     switch (action.type) {
 
         case ADD_SCORE:
-            const newScore = state.scores.findIndex(item=> item.id===action.value.id);
-            //if ()
-            return { ...state, scores: [ ...state.scores, action.score ] };
+            let table = [ ...state.scores, action.score ].sort((a,b)=>{
+                if (b.nbTry===-1 || (a.nbTry < b.nbTry && a.nbTry>0 && b.nbTry>0)){
+                    return -1;
+                }
+                else if(a.nbTry < b.nbTry && a.nbTry>0 && b.nbTry>0){
+                    return +1
+                }
+                else {
+                    return 0;
+                }
+            }) ;
+            if (table.length>5) {
+                table.pop();
+            }
+            return { ...state, scores: table};
+
+
 
 
         case DEL_SCORE:

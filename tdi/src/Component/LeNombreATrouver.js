@@ -9,51 +9,27 @@ export class LeNombreATrouver extends React.Component
         super(props);
         this.compteur = 0;
         this.nbRand = this.generateRand();
+        this.scores = [];
 
         //les states sont les seuls éléments destiné a changer graphiquement
         this.state= {
             //nbRand : this.generateRand(),
             content : "",
             name : this.props.name,
-            scores : []
         };
     }
 
 
-
     addScore(){
         console.log(""+ this.state.name + "  |  " + this.compteur + "  : "  + this.nbRand);
+
         this.props.addScore({
             name : this.state.name,
             nbTry : this.compteur,
             nbToFind : this.nbRand
         });
-
-        /*
-        scores.map((score , index) => {
-            return score.nbTry;
-        }*/
-/*
-        const { scores } = this.props;
-
-        {scores.map((score , index) => {
-            return (
-                index
-                    score.nbToFind
-            );
-        })}
-
-*/
-
-        //console.log("ajouté au score");
     }
-
-
-    delScore(index) {
-        console.log(this);
-        this.props.delScore(index);
-    }
-
+    
 
     number(event) {
         event.preventDefault();
@@ -75,6 +51,7 @@ export class LeNombreATrouver extends React.Component
         }
     }
 
+
     generateRand(){
         let nb = Math.round(Math.random()*(101));
         console.log(nb);
@@ -93,7 +70,6 @@ export class LeNombreATrouver extends React.Component
         this.addScore();
         //save dans database avec -1
 
-        //this.setState({...this.state, nbRand : this.generateRand()});
         this.nbRand = this.generateRand();
         this.compteur=0;
         this.setState({...this.state, content : ""});
@@ -106,7 +82,7 @@ export class LeNombreATrouver extends React.Component
         return (
             <div>
             <h2>nombre a trouver</h2>
-            <p>vous devez trouver le nombre entre 1 et 100</p>
+            <p>vous devez trouver le nombre entre 0 et 100</p>
             <form onSubmit={ event => this.number(event) }>
                 <label>
                  proposition : <input type="text" />
@@ -125,10 +101,6 @@ export class LeNombreATrouver extends React.Component
                             <td>{score.name}</td>
                             <td>{score.nbTry}</td>
                             <td>{score.nbToFind}</td>
-                            <td>
-                                <button onClick={() => this.delScore(index)}>del</button>
-                                <button onClick={() => this.delScore(index)}>Delete</button>
-                            </td>
                         </tr>
                     );
                 })}
