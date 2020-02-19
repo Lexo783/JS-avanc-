@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="df3b152f-46bd-4fea-9b6d-bde37e97ad78" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Component/Accueil.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Component/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Component/LeNombreATrouver.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Component/FindTheNumber.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +90,7 @@
       <updated>1581934443488</updated>
       <workItem from="1581934445172" duration="115000" />
       <workItem from="1581935085349" duration="18388000" />
-      <workItem from="1582014335743" duration="30549000" />
+      <workItem from="1582014335743" duration="30902000" />
     </task>
     <servers />
   </component>
