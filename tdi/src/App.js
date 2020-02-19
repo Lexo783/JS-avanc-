@@ -1,4 +1,5 @@
 import React from 'react';
+import * as firebase from 'firebase';
 
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
@@ -34,6 +35,8 @@ export default class App extends React.Component {
       nameState : ''
     };
 
+      //var app = firebase.initializeApp({...});
+
   }
 
   setName(name) {
@@ -43,6 +46,22 @@ export default class App extends React.Component {
       ...this.state,nameState:name
     })
   }
+
+  /*
+  *  <script src="https://www.gstatic.com/firebasejs/${JSCORE_VERSION}/firebase.js"></script>
+
+          <script>
+            var app = firebase.initializeApp({
+            apiKey: '<your-api-key>',
+            authDomain: '<your-auth-domain>',
+            databaseURL: '<your-database-url>',
+            projectId: '<your-cloud-firestore-project>',
+            storageBucket: '<your-storage-bucket>',
+            messagingSenderId: '<your-sender-id>'
+          });
+            // ...
+          </script>
+  * */
 
 
   render() {
@@ -84,6 +103,8 @@ export default class App extends React.Component {
               <LeNombreATrouver name={this.state.nameState}/>
             </Route>
           </Switch>
+
+
         </div>
       </Router>
         </Provider>

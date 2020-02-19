@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from "react-redux";
-import { addScore, delScore } from "../redux/actions";
+import { addScore } from "../redux/actions";
 
 export class LeNombreATrouver extends React.Component
 {
@@ -29,7 +29,7 @@ export class LeNombreATrouver extends React.Component
             nbToFind : this.nbRand
         });
     }
-    
+
 
     number(event) {
         event.preventDefault();
@@ -53,7 +53,7 @@ export class LeNombreATrouver extends React.Component
 
 
     generateRand(){
-        let nb = Math.round(Math.random()*(101));
+        let nb = Math.floor(Math.random()*(101));
         console.log(nb);
         return nb;
     }
@@ -88,10 +88,11 @@ export class LeNombreATrouver extends React.Component
                  proposition : <input type="text" />
                 </label>
                 <button>valider</button>
-                <button onClick={() => this.lose()}>recommencer</button>
 
                 <p>{this.state.content}</p>
             </form>
+            <button onClick={() => this.lose()}>recommencer</button>
+
 
                 <table className="style"> <thead><tr><th>Nom</th> <th>score</th> <th>nb a trouver</th> </tr></thead>
                 <tbody>
@@ -126,12 +127,6 @@ const mapDispatchToProps = dispatch => {
         addScore: score => {
             dispatch(addScore(score))
         },
-        /*editStudent: datas => {
-            dispatch(editStudent(datas))
-        },*/
-        delScore: index => {
-            dispatch(delScore(index))
-        }
     };
 };
 
