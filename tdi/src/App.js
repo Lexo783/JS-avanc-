@@ -14,16 +14,11 @@ import {
   Link
 } from "react-router-dom";
 
-import Accueil from './Component/Accueil';
+import Home from './Component/Home';
 import Configuration from './Component/Configuration';
-import Apropos from './Component/User';
-import LeNombreATrouver from './Component/LeNombreATrouver';
+import About from './Component/User';
+import FindTheNumber from './Component/FindTheNumber';
 
-
-import {
-  addScore,
-  delScore
-} from './redux/actions';
 
 const store = createStore(reducer);
 
@@ -36,7 +31,6 @@ export default class App extends React.Component {
     };
 
       //var app = firebase.initializeApp({...});
-
   }
 
   setName(name) {
@@ -76,13 +70,13 @@ export default class App extends React.Component {
                 <Link to="/">Accueil</Link>
               </li>
               <li>
-                <Link to="/about">Configuration</Link>
+                <Link to="/configuration">Configuration</Link>
               </li>
               <li>
-                <Link to="/users">A propos</Link>
+                <Link to="/about">A propos de nous</Link>
               </li>
               <li>
-                <Link to="/leNbATrouver">Le nombre a trouver</Link>
+                <Link to="/findTheNumber">Le nombre a trouver</Link>
               </li>
             </ul>
           </nav>
@@ -91,16 +85,16 @@ export default class App extends React.Component {
               renders the first one that matches the current URL. */}
           <Switch>
             <Route exact path="/">
-              <Accueil name={this.state.nameState}/>
+              <Home name={this.state.nameState}/>
             </Route>
-            <Route path="/about">
+            <Route path="/configuration">
               <Configuration name={name => this.setName(name)} />
             </Route>
-            <Route path="/users">
-              <Apropos />
+            <Route path="/about">
+              <About />
             </Route>
-            <Route path="/leNbATrouver">
-              <LeNombreATrouver name={this.state.nameState}/>
+            <Route path="/findTheNumber">
+              <FindTheNumber name={this.state.nameState}/>
             </Route>
           </Switch>
 

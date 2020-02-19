@@ -6,17 +6,15 @@ import { addScore } from "../redux/actions";
 import Score from "./Score";
 
 
-export class LeNombreATrouver extends React.Component
+export class FindTheNumber extends React.Component
 {
     constructor(props) {
         super(props);
-        this.compteur = 0;
+        this.count = 0;
         this.nbRand = this.generateRand();
         this.scores = [];
 
-        //les states sont les seuls éléments destiné a changer graphiquement
         this.state= {
-            //nbRand : this.generateRand(),
             content : "",
             name : this.props.name,
         };
@@ -24,11 +22,11 @@ export class LeNombreATrouver extends React.Component
 
 
     addScore(){
-        console.log(""+ this.state.name + "  |  " + this.compteur + "  : "  + this.nbRand);
+        console.log(""+ this.state.name + "  |  " + this.count + "  : "  + this.nbRand);
 
         this.props.addScore({
             name : this.state.name,
-            nbTry : this.compteur,
+            nbTry : this.count,
             nbToFind : this.nbRand
         });
     }
@@ -39,18 +37,18 @@ export class LeNombreATrouver extends React.Component
         let nbGiven = parseInt(event.target[0].value);
         console.log(""  + this.nbRand);
         if (nbGiven === this.nbRand) {
-            this.compteur ++;
-            console.log("find: " + this.compteur);
-            this.setState({...this.state, content : "vous avez trouvé aprés " + this.compteur + " essai"});
+            this.count ++;
+            console.log("find: " + this.count);
+            this.setState({...this.state, content : "vous avez trouvé aprés " + this.count + " essai"});
             this.restart();
         } else if (nbGiven > this.nbRand) {
-            this.compteur ++;
-            console.log("en dessous" + this.compteur);
-            this.setState({...this.state, content : "c'est plus petit , vous avez fait " + this.compteur + " essai"});
+            this.count ++;
+            console.log("en dessous" + this.count);
+            this.setState({...this.state, content : "c'est plus petit , vous avez fait " + this.count + " essai"});
         } else if (nbGiven < this.nbRand) {
-            this.compteur ++;
+            this.count ++;
             console.log("au dessus");
-            this.setState({...this.state, content : "c'est plus grand vous avez fait " + this.compteur + " essai"});
+            this.setState({...this.state, content : "c'est plus grand vous avez fait " + this.count + " essai"});
         }
     }
 
@@ -62,7 +60,7 @@ export class LeNombreATrouver extends React.Component
 
 
     lose(){
-        this.compteur =-1;
+        this.count =-1;
         this.restart();
     }
 
@@ -71,7 +69,7 @@ export class LeNombreATrouver extends React.Component
         this.addScore();
 
         this.nbRand = this.generateRand();
-        this.compteur=0;
+        this.count=0;
         this.setState({...this.state, content : ""});
     }
 
@@ -114,4 +112,4 @@ const mapDispatchToProps = dispatch => {
 export default withRouter(connect(
     mapStateToProps,
     mapDispatchToProps
-)(LeNombreATrouver));
+)(FindTheNumber));
