@@ -28,6 +28,7 @@
   color: #61dafb;
 }
 
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -35,4 +36,42 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+
+.picturesSection{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: flex-start;
+  margin: 20px;
+}
+
+.gameDiv {
+  display: flex;
+}
+.gameDiv img{
+  align-self: flex-start;
+}
+.gameDiv p{
+  align-self: center;
+}
+.gameImg{
+  margin: 10px;
+  width: 200px;
+  height: auto;
+}
+.gameTitle{
+  display: flex;
+  justify-content: flex-start;
+}
+.gameTitle img{
+  align-self: center;
+}
+
+.pictureFavorite{
+  width: 20px;
+  height: auto;
+  margin: 5px;
 }
