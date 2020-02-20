@@ -17,6 +17,6 @@ export function addFavorite(gameName) {
 }
 
 export function delFavorite(gameName) {
-    return { type: DEL_USER, gameName };
+    return { type: DEL_FAVORITE, gameName };
 }
 

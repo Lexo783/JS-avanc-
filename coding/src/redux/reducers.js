@@ -66,22 +66,30 @@ export default function reducers(state = initialState, action) {
             console.log(action.gameName + "     -   " + action.gameName)
 
             if(t.includes(action.gameName)){
-                nextState = t
+                return state;
+                nextState = t;
                 console.log("contient deja:  " + action.gameName)
             }
             else {
                 nextState = {
                     ...state, favoritesGame : [...state.favoritesGame, action.gameName]
                 }
-                console.log("nopp:  " + action.gameName)
+                console.log("nop:  " + action.gameName)
             }
             console.log(nextState);
-            return nextState || state;*/
+            return nextState || state;
+*/
 
 
 
+            return  {
+                ...state, favoritesGame : [...state.favoritesGame, action.gameName]
+            }
 
-            console.log(action.gameName)
+
+
+/*
+            console.log(action.gameName);
 
             const favIndex = state.favoritesGame.findIndex(item => item.id === action.gameName.id);
             if(favIndex !== -1){
@@ -99,7 +107,7 @@ export default function reducers(state = initialState, action) {
             console.log("reducer addFav : " + nextState + "    -" + action.gameName);
             console.log(nextState)
             return nextState || state;
-
+*/
 
             /*
             let t = [...state.favorites];
@@ -124,12 +132,15 @@ export default function reducers(state = initialState, action) {
             console.log(tableGame);
             return { ...state.users, favoriteGamesName : tableGame};*/
 
+        case DEL_FAVORITE:
+            const favIndex = state.favoritesGame.findIndex(item => item.id === action.gameName.id);
 
-        case DEL_FAVORITE :
-            if (arrayHasIndex(state.users, action.index)) {
-                return { ...state, users: [ ...state.users.filter((user, index) => index !== action.index) ] };
-            }
-            return state;
+                nextState = {
+                    ...state, favoritesGame : state.favoritesGame.filter( (item, index) => index !== favIndex)
+                }
+
+
+            return nextState;
 
         default:
             return state;

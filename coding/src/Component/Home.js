@@ -12,7 +12,7 @@ import EmptyHearth from '../pictures/hearth_empty.png'
 
 import {withRouter} from "react-router-dom";
 import {connect} from "react-redux";
-import { addFavorite, delFavorite } from "../redux/actions";
+import {addFavorite, delFavorite} from "../redux/actions";
 
 
 
@@ -23,21 +23,6 @@ export class Home extends React.Component {
 
 
         this.state = {
-            favorite : [
-                {
-                    name : "Darksouls 3",
-                    isFavorite : true
-                },
-                {
-                    name : "Dragon Ball Z Kakarot",
-                    isFavorite : true
-                },
-                {
-                    name : "Monster Hunter World",
-                    isFavorite : false
-                },
-
-            ],
             favoritesGame : []
         };
 
@@ -214,6 +199,11 @@ export class Home extends React.Component {
         }*/
     }
 
+    delToFavorite(gameName){
+        this.props.delFavorite(gameName);
+
+    }
+
     render(){
         const { favoritesGame } = this.props;
 
@@ -234,7 +224,7 @@ export class Home extends React.Component {
                                             <p >
                                                 {game.name}
                                             </p>
-                                            <img src={Hearth} id={i} className="pictureFavorite" onClick={event =>this.addToFavorite(event)}/>
+                                            <img src={Hearth} id={i} className="pictureFavorite" onClick={event =>this.delToFavorite(event)}/>
                                         </div>
                                         <p>{game.description}</p>
                                         <p>
@@ -294,9 +284,9 @@ const mapDispatchToProps = dispatch => {
         addFavorite: gameName => {
             dispatch(addFavorite(gameName))
         },
-        delFavorite: gameName => {
+        delFavorite : gameName=>{
             dispatch(delFavorite(gameName))
-        },
+        }
     };
 };
 

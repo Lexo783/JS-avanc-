@@ -13,7 +13,7 @@ export class FavoriteList extends React.Component
     render()
     {
         const { favoritesGame } = this.props;
-
+        console.log(favoritesGame);
         return (
             <div>
                 <table className="style"> <thead><tr><th>name</th> </tr></thead>
