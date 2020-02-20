@@ -10,6 +10,11 @@ export class Create extends React.Component {
         super(props);
     }
 
+    setName(event) {
+        event.preventDefault();
+        this.props.nameState(event.target[0].value);
+    }
+
     takeInformation(event)
     {
         event.preventDefault();

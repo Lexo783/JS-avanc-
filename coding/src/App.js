@@ -1,7 +1,9 @@
 import React from 'react';
 import * as firebase from 'firebase';
+import DarkSoul3 from './pictures/dark_souls_3.jpg'
 
-import { Provider } from 'react-redux';
+
+import {connect, Provider} from 'react-redux';
 import { createStore } from 'redux';
 import reducer from './redux/reducers'
 
@@ -11,13 +13,16 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link, withRouter
 } from "react-router-dom";
+
+
 
 import Home from './Component/Home'
 import Favoris from './Component/Favorite'
 import Create from './Component/create'
 import Profil from "./Component/Profil";
+import {addFavorite, delFavorite} from "./redux/actions";
 
 
 const store = createStore(reducer);
@@ -29,6 +34,8 @@ export default class App extends React.Component {
       this.state = {
       nameState : ''
     };
+    const { users } = this.props;
+
 
 
     // Your web app's Firebase configuration
@@ -46,6 +53,16 @@ export default class App extends React.Component {
     firebase.initializeApp(firebaseConfig);
     firebase.analytics();
       //var app = firebase.initializeApp({...});
+    this.message ="mailto:gwenael.mw@gmail.com?subject= Voici ma liste de jeux favoris sur un site super! &body=" +
+        "Salut! Voici mon profil de jeux avec mes jeux Favoris : http://localhost:3000/favorite , Je t'invite donc a t'inscrire ainsi que de me payer un jeux qui est dans la liste." + this.state.nameState
+  }
+
+  setName(name) {
+    console.log('App', name);
+    this.test = name;
+    this.setState({
+      ...this.state,nameState:name
+    })
   }
 
   /*
@@ -88,6 +105,10 @@ export default class App extends React.Component {
                 <Link to="/profil">Mon profil</Link>
               </li>
             </ul>
+
+            <a href={this.message}>
+              Partager mon profil.
+            </a>
           </nav>
 
           {/* A <Switch> looks through its children <Route>s and
@@ -96,7 +117,7 @@ export default class App extends React.Component {
             <Route exact path="/">
               <Home />
             </Route>
-            <Route path="/create">
+            <Route path="/create" name={name => this.setName(name)} >
               <Create />
             </Route>
             <Route path="/favorite">
@@ -114,3 +135,6 @@ export default class App extends React.Component {
     );
   }
 }
+
+
+
