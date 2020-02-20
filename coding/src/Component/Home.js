@@ -10,21 +10,48 @@ import ZeldaBOTW from '../pictures/zelda_BOTW.jpg'
 import Hearth from '../pictures/hearth.png'
 import EmptyHearth from '../pictures/hearth_empty.png'
 
-export default class home extends React.Component {
+import {withRouter} from "react-router-dom";
+import {connect} from "react-redux";
+import { addFavorite, delFavorite } from "../redux/actions";
+
+
+
+
+export class Home extends React.Component {
     constructor(props) {
         super(props);
+
+
+        this.state = {
+            favorite : [
+                {
+                    name : "Darksouls 3",
+                    isFavorite : true
+                },
+                {
+                    name : "Dragon Ball Z Kakarot",
+                    isFavorite : true
+                },
+                {
+                    name : "Monster Hunter World",
+                    isFavorite : false
+                },
+
+            ],
+            favoritesGame : []
+        };
 
         this.state = {
             table : [
                 {
-                    name: "Darksouls 3", favorite: EmptyHearth, cover: DarkSoul3,
+                    name: "Darksouls 3", cover: DarkSoul3,
                     description: "Développé par From Software, Dark Souls 3 est un action RPG particulièrement exigeant. " +
                         "L'environnement, très peu accueillant, ravira les amateurs de challenges corsés. " +
                         "Vous y combattrez de gigantesques ennemis, qui ne feront qu'une bouchée de vous.",
                     genre: "Action | Action RPG | Dungeon RPG", date: "12 avril 2016"
                 },
                 {
-                    name: "Dragon Ball Z Kakarot", favorite: EmptyHearth, cover: Dbz,
+                    name: "Dragon Ball Z Kakarot", cover: Dbz,
                     description: "Dragon Ball Z Kakarot permet de revivre l'histoire de Dragon Ball Z dans le peau de Kakarot / Goku. " +
                         "Développé par CyberConnect2, le jeu reproduira les moments emblématiques de l'oeuvre originale. " +
                         "Il sera possible de voler dans un monde vaste que vous débloquerez en progressant dans l'aventure, " +
@@ -32,7 +59,7 @@ export default class home extends React.Component {
                     genre: "Action RPG", date: "17 janvier 2020"
                 },
                 {
-                    name: "Monster Hunter World", favorite: EmptyHearth, cover: MonsterHunter,
+                    name: "Monster Hunter World", cover: MonsterHunter,
                     description: "La dernière entrée de la série Monster Hunter. " +
                         "Plus complet que jamais, le jeu transporte le joueur au travers de batailles contre " +
                         "de terribles monstres et de magnifiques paysages. Récupérerez des objets sur vos ennemis, " +
@@ -41,14 +68,14 @@ export default class home extends React.Component {
                     genre: "Action | RPG | Action RPG", date: "26 janvier 2018"
                 },
                 {
-                    name: "Pokemon épée", favorite: EmptyHearth, cover: PokemonEpee,
+                    name: "Pokemon épée",  cover: PokemonEpee,
                     description: "Pokémon Épée / Bouclier est le nouvel épisode de la série Pokémon, exclusif " +
                         "à la console de salon de Nintendo. Le jeu prend place dans la nouvelle région de Galar " +
                         "et donne accès à trois nouveaux Pokémons de départ : Ouistempo (plante), Flambino (feu) et Larméléon (eau).",
                     genre: "RPG", date: "15 novembre 2019"
                 },
                 {
-                    name: "Resident Evil 3", favorite: EmptyHearth, cover: ResidentEvil,
+                    name: "Resident Evil 3", cover: ResidentEvil,
                     description: "Resident Evil 3 (2020) est un jeu développé et édité par Capcom. " +
                         "C'est une version remise au goût du jour de Resident Evil 3, " +
                         "sorti initialement sur Playstation en 1999. Le joueur incarne Jill, " +
@@ -56,7 +83,7 @@ export default class home extends React.Component {
                     genre: "Survival-Horror", date: "03 avril 2020"
                 },
                 {
-                    name: "The Elder Scrolls V : Skyrim", favorite: EmptyHearth, cover: Skyrim,
+                    name: "The Elder Scrolls V : Skyrim",  cover: Skyrim,
                     description: "The Elder Scrolls V : Skyrim est le cinquième épisode de la saga de jeux de rôle du même nom. " +
                         "Le scénario se passe 200 ans après l'histoire du quatrième opus, " +
                         "quand Alduin fait son retour au milieu d'une guerre civile. " +
@@ -66,14 +93,14 @@ export default class home extends React.Component {
                     genre: "Heroic Fantasy | Dragons", date: "11 novembre 2011"
                 },
                 {
-                    name: "The Witcher 3 : Wild Hunt", favorite: EmptyHearth, cover: Witcher3,
+                    name: "The Witcher 3 : Wild Hunt",  cover: Witcher3,
                     description: "The Witcher 3 : Wild Hunt est un Action-RPG se déroulant dans un monde ouvert. " +
                         "Troisième épisode de la série du même nom, inspirée des livres du polonais Andrzej Sapkowski, " +
                         "cet opus relate la fin de l'histoire de Geralt de Riv.",
                     genre: "Fantastique | Heroic Fantasy", date: "19 mai 2015"
                 },
                 {
-                    name: "The Legend Of Zelda : Breath Of The Wild", favorite: EmptyHearth, cover: ZeldaBOTW,
+                    name: "The Legend Of Zelda : Breath Of The Wild",  cover: ZeldaBOTW,
                     description: "The Legend of Zelda : Breath of the Wild est un jeu d'action/aventure. " +
                         "Link se réveille d'un sommeil de 100 ans dans un royaume d'Hyrule dévasté. " +
                         "Il lui faudra percer les mystères du passé et vaincre Ganon, le fléau. " +
@@ -163,50 +190,90 @@ export default class home extends React.Component {
 
     }
 
-    addToFavorite(event){
+    addToFavorite(gameName){
 
-        console.log(event.target.src + "   " + EmptyHearth);
-        if (event.target.src==="http://localhost:3000"+EmptyHearth){
-            this.table[event.target.id].favorite = Hearth;
-            //this.setState(...this.state, table[1].favorite : Hearth);
-            console.log("deviens favoris")
+        //const { users } = this.props;
+        console.log(gameName);
+        this.props.addFavorite(gameName);
+        /*
+        if (!users.includes(gameName)){
+            //this.table[event.target.id].favorite = Hearth;
+            //this.setState({...this.state, table :});
+            console.log("deviens favori");
+
+            this.props.addFavorite({
+                name : gameName
+            });
         }
         else {
-            this.table[event.target.id].favorite = EmptyHearth;
-            console.log("n'est plus favoris")
-
-        }
+            //this.table[event.target.id].favorite = EmptyHearth;
+            console.log("n'est plus favorite")
+            this.props.delFavorite({
+                name : gameName
+            });
+        }*/
     }
 
     render(){
-        //const {table} = this.state;
+        const { favoritesGame } = this.props;
+
         return(
             <div>
 
                 <h3>Voici les images du jours</h3>
                 <section className="picturesSection">
                     {this.state.table.map((game, i) =>
-                        (
-                            <div key={i} className="gameDiv">
-                                <img src={game.cover} className="gameImg"/>
-                                <div className="description">
-                                    <div className="gameTitle">
-                                        <p >
-                                            {game.name}
-                                        </p>
-                                        <img src={game.favorite} id={i} className="pictureFavorite" onClick={event =>this.addToFavorite(event)}/>
-                                    </div>
-                                    <p>{game.description}</p>
-                                    <p>
-                                        genre : {game.genre}
-                                    </p>
-                                    <p>
-                                        date de sortie : {game.date}
-                                    </p>
-                                </div>
-                            </div>
+                    {
+                        if(favoritesGame.includes(game.name)){
+                            return (
 
-                        )
+                                <div key={i} className="gameDiv">
+                                    <img src={game.cover} className="gameImg"/>
+                                    <div className="description">
+                                        <div className="gameTitle">
+                                            <p >
+                                                {game.name}
+                                            </p>
+                                            <img src={Hearth} id={i} className="pictureFavorite" onClick={event =>this.addToFavorite(event)}/>
+                                        </div>
+                                        <p>{game.description}</p>
+                                        <p>
+                                            genre : {game.genre}
+                                        </p>
+                                        <p>
+                                            date de sortie : {game.date}
+                                        </p>
+                                    </div>
+                                </div>
+
+                            )
+                        }
+                        else {
+                            return (
+
+                                <div key={i} className="gameDiv">
+                                    <img src={game.cover} className="gameImg"/>
+                                    <div className="description">
+                                        <div className="gameTitle">
+                                            <p >
+                                                {game.name}
+                                            </p>
+                                            <img src={EmptyHearth} id={i} className="pictureFavorite" onClick={() =>this.addToFavorite(game.name.toString())}/>
+                                        </div>
+                                        <p>{game.description}</p>
+                                        <p>
+                                            genre : {game.genre}
+                                        </p>
+                                        <p>
+                                            date de sortie : {game.date}
+                                        </p>
+                                    </div>
+                                </div>
+
+                            )
+                        }
+                    }
+
                     )}
                 </section>
 
@@ -214,3 +281,26 @@ export default class home extends React.Component {
         );
     }
 }
+
+
+const mapStateToProps = state => {
+    return {
+        favoritesGame : state.favoritesGame
+    };
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        addFavorite: gameName => {
+            dispatch(addFavorite(gameName))
+        },
+        delFavorite: gameName => {
+            dispatch(delFavorite(gameName))
+        },
+    };
+};
+
+export default withRouter(connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Home));

@@ -14,9 +14,11 @@ import {
   Link
 } from "react-router-dom";
 
-import Home from './Component/home'
-import Favoris from './Component/favoris'
+import Home from './Component/Home'
+import Favoris from './Component/Favorite'
 import Create from './Component/create'
+import Profil from "./Component/Profil";
+
 
 const store = createStore(reducer);
 
@@ -80,7 +82,10 @@ export default class App extends React.Component {
                 <Link to="/create">Creation du compte</Link>
               </li>
               <li>
-                <Link to="/favoris">Mes favoris</Link>
+                <Link to="/favorite">Mes favorite</Link>
+              </li>
+              <li>
+                <Link to="/profil">Mon profil</Link>
               </li>
             </ul>
           </nav>
@@ -94,8 +99,11 @@ export default class App extends React.Component {
             <Route path="/create">
               <Create />
             </Route>
-            <Route path="/favoris">
+            <Route path="/favorite">
               <Favoris />
+            </Route>
+            <Route path="/profil">
+              <Profil />
             </Route>
           </Switch>
 
