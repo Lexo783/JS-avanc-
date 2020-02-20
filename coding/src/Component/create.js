@@ -1,15 +1,25 @@
 import React from 'react';
-export default class create extends React.Component {
 
-constructor(props){
-    super(props);
-}
+import {withRouter} from 'react-router-dom';
+import { connect } from "react-redux";
+import { addUser} from "../redux/actions";
+
+export class Create extends React.Component {
+
+    constructor(props){
+        super(props);
+    }
 
     takeInformation(event)
     {
         event.preventDefault();
-        let info ={firstName : event.target[0].value,lastName : event.target[1].value ,birthDate: event.target[2].value ,bio : event.target[3].value, city: event.target[4].value};
-        console.log(info);
+        this.props.addUser({
+            firstName : event.target[0].value,
+            lastName : event.target[1].value ,
+            birthDate: event.target[2].value ,
+            bio : event.target[3].value,
+            city: event.target[4].value
+        });
     }
 
 
@@ -29,3 +39,21 @@ constructor(props){
         );
     }
 }
+const mapStateToProps = state => {
+    return {
+        scores: state.scores
+    };
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        addUser: user => {
+            dispatch(addUser(user))
+        },
+    };
+};
+
+export default withRouter(connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Create));

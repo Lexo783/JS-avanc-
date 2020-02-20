@@ -1,11 +1,11 @@
-export const ADD_SCORE = 'ADD_SCORE';
-export const DEL_SCORE = 'DEL_SCORE';
+export const ADD_USER = 'ADD_USER';
+export const DEL_USER = 'DEL_USER';
 
 
-export function addScore(score) {
-    return { type: ADD_SCORE, score };
+export function addUser(user) {
+    return { type: ADD_USER, user };
 }
 
-export function delScore(index) {
-    return { type: DEL_SCORE, index };
+export function delUser(index) {
+    return { type: DEL_USER, index };
 }
