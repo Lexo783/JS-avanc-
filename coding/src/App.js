@@ -1,6 +1,4 @@
 import React from 'react';
-import * as firebase from 'firebase';
-
 import {connect, Provider} from 'react-redux';
 import { createStore } from 'redux';
 import reducer from './redux/reducers'
@@ -15,8 +13,8 @@ import {
   withRouter
 } from "react-router-dom";
 import Home from './Component/Home'
-import Favoris from './Component/Favorite'
-import Create from './Component/create'
+import FavoriteList from './Component/FavoriteList'
+import Create from './Component/Create'
 import Profil from "./Component/Profil";
 
 
@@ -26,21 +24,9 @@ const store = createStore(reducer);
 export default class App extends React.Component {
   constructor(props){
     super(props);
-      this.state = {
-      nameState : ''
-    };
-
     this.message ="mailto:gwenael.mw@gmail.com?subject= Voici ma liste de jeux favoris sur un site super! &body=" +
         "Salut! Voici mon profil de jeux avec mes jeux Favoris : http://localhost:3000/favorite , " +
         "Je t'invite donc a t'inscrire ainsi que de me payer un jeux qui est dans la liste."
-  }
-
-  setName(name) {
-    console.log('App', name);
-    this.test = name;
-    this.setState({
-      ...this.state,nameState:name
-    })
   }
 
 
@@ -76,11 +62,11 @@ export default class App extends React.Component {
             <Route exact path="/">
               <Home />
             </Route>
-            <Route path="/create" name={name => this.setName(name)} >
+            <Route path="/create">
               <Create />
             </Route>
             <Route path="/favorite">
-              <Favoris />
+              <FavoriteList />
             </Route>
             <Route path="/profil">
               <Profil />

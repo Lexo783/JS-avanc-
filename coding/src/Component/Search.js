@@ -1,5 +1,5 @@
 import React from 'react';
-import TableGame from "./TableGame";
+import TableGame from "../data/TableGame";
 import List from "./List";
 
 

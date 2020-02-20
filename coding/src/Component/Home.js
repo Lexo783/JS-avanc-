@@ -1,6 +1,6 @@
 import React from 'react';
 import Search from "./Search";
-import TableGame from "./TableGame";
+import TableGame from "../data/TableGame";
 
 
 export default class Home extends React.Component {

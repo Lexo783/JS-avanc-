@@ -1,6 +1,6 @@
 import React from 'react';
 import Hearth from '../pictures/hearth.png'
-import TableGame from "./TableGame";
+import TableGame from "../data/TableGame";
 import {withRouter} from "react-router-dom";
 import {connect} from "react-redux";
 import {addFavorite, delFavorite} from "../redux/actions";
@@ -20,6 +20,7 @@ export class FavoriteList extends React.Component {
     render(){
         return(
             <div>
+                <h3>Voici vos favoris</h3>
                 <section className="picturesSection">
                     {this.state.table.map((game, i) =>
                         {

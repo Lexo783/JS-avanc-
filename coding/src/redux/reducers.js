@@ -4,7 +4,6 @@ import {
     ADD_FAVORITE,
     DEL_FAVORITE
 } from './actions'
-import favorite from "../Component/Favorite";
 
 const initialState = {
     /**

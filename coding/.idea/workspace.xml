@@ -2,14 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="085be880-3251-48bf-8ba1-0a28e6eb6ea5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Component/Favorite.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Component/Favorite.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Component/Favorite.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Component/FavoriteList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Component/FavoriteList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Component/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Component/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Component/Profil.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Component/Profil.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Component/Search.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Component/Search.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Component/create.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Component/create.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/reducers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Component/TableGame.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/TableGame.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Component/create.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Component/Create.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +47,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/data" />
       <recent name="$PROJECT_DIR$/src/Component" />
       <recent name="$PROJECT_DIR$/src" />
     </key>
@@ -68,15 +69,10 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/Component/FavoriteList.js</url>
-          <line>8</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="WindowStateProjectService">
+    <state x="438" y="173" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1582233602086">
+      <screen x="0" y="23" width="1440" height="812" />
+    </state>
+    <state x="438" y="173" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.812@0.23.1440.812" timestamp="1582233602086" />
   </component>
 </project>
