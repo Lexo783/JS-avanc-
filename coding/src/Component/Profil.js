@@ -13,24 +13,20 @@ export class Profil extends React.Component
     render()
     {
         const { users } = this.props;
-
         return (
             <div>
-                <table className="style"> <thead><tr><th>prenom</th> <th>nom</th> <th>date naissance</th> <th>bio</th> <th>city</th><th>favoris</th></tr></thead>
-                    <tbody>
-                    {users.map((user , index) => {
+                {users.map((user , index) => {
                         return (
-                            <tr key={index}>
-                                <td>{user.firstName}</td>
-                                <td>{user.lastName}</td>
-                                <td>{user.birthDate}</td>
-                                <td>{user.bio}</td>
-                                <td>{user.city}</td>
+                            <div key={index}>
+                                <p>Votre prénom:  {user.firstName}</p>
+                                <p>Votre nom:  {user.lastName}</p>
+                                <p>Date de naissance:  {user.birthDate}</p>
+                                <p>Biographie:  {user.bio}</p>
+                                <p>Ville:  {user.city}</p>
 
-                            </tr>
+                            </div>
                         );
                     })}
-                    </tbody></table>
             </div>
         )
     }

@@ -47,7 +47,6 @@ export default function reducers(state = initialState, action) {
 
 
 
-
         case ADD_FAVORITE:
             return  {
                 ...state, favoritesGame : [...state.favoritesGame, action.gameName]
@@ -58,7 +57,6 @@ export default function reducers(state = initialState, action) {
             nextState = {
                 ...state, favoritesGame : state.favoritesGame.filter( (item, index) => index !== ind)
             }
-
             return nextState;
 
         default:

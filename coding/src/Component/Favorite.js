@@ -1,6 +1,6 @@
 import React from 'react';
-
 import FavoriteList from "./FavoriteList";
+
 
 export default class favorite extends React.Component {
     render(){

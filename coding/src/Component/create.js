@@ -1,19 +1,20 @@
 import React from 'react';
-
 import {withRouter} from 'react-router-dom';
 import { connect } from "react-redux";
 import { addUser} from "../redux/actions";
 
-export class Create extends React.Component {
 
+export class Create extends React.Component {
     constructor(props){
         super(props);
     }
+
 
     setName(event) {
         event.preventDefault();
         this.props.nameState(event.target[0].value);
     }
+
 
     takeInformation(event)
     {
@@ -44,11 +45,14 @@ export class Create extends React.Component {
         );
     }
 }
+
+
 const mapStateToProps = state => {
     return {
         scores: state.scores
     };
 };
+
 
 const mapDispatchToProps = dispatch => {
     return {
@@ -57,6 +61,7 @@ const mapDispatchToProps = dispatch => {
         },
     };
 };
+
 
 export default withRouter(connect(
     mapStateToProps,
