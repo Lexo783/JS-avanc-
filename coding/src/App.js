@@ -13,7 +13,8 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link, withRouter
+  Link,
+  withRouter
 } from "react-router-dom";
 
 
@@ -23,6 +24,7 @@ import Favoris from './Component/Favorite'
 import Create from './Component/create'
 import Profil from "./Component/Profil";
 import {addFavorite, delFavorite} from "./redux/actions";
+import Search from "./Component/Search";
 
 
 const store = createStore(reducer);
@@ -104,6 +106,9 @@ export default class App extends React.Component {
               <li>
                 <Link to="/profil">Mon profil</Link>
               </li>
+              <li>
+                  <Link to="/search">Chercher</Link>
+              </li>
             </ul>
 
             <a href={this.message}>
@@ -125,6 +130,9 @@ export default class App extends React.Component {
             </Route>
             <Route path="/profil">
               <Profil />
+            </Route>
+            <Route>
+              <Search path={"/search"}/>
             </Route>
           </Switch>
 

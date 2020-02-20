@@ -17,7 +17,7 @@ import {addFavorite, delFavorite} from "../redux/actions";
 
 
 
-export class Home extends React.Component {
+export class FavoriteList extends React.Component {
     constructor(props) {
         super(props);
 
@@ -174,4 +174,4 @@ const mapDispatchToProps = dispatch => {
 export default withRouter(connect(
     mapStateToProps,
     mapDispatchToProps
-)(Home));
+)(FavoriteList));
