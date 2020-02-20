@@ -176,32 +176,12 @@ export class Home extends React.Component {
     }
 
     addToFavorite(gameName){
-
-        //const { users } = this.props;
         console.log(gameName);
         this.props.addFavorite(gameName);
-        /*
-        if (!users.includes(gameName)){
-            //this.table[event.target.id].favorite = Hearth;
-            //this.setState({...this.state, table :});
-            console.log("deviens favori");
-
-            this.props.addFavorite({
-                name : gameName
-            });
-        }
-        else {
-            //this.table[event.target.id].favorite = EmptyHearth;
-            console.log("n'est plus favorite")
-            this.props.delFavorite({
-                name : gameName
-            });
-        }*/
     }
 
     delToFavorite(gameName){
         this.props.delFavorite(gameName);
-
     }
 
     render(){
@@ -224,7 +204,7 @@ export class Home extends React.Component {
                                             <p >
                                                 {game.name}
                                             </p>
-                                            <img src={Hearth} id={i} className="pictureFavorite" onClick={event =>this.delToFavorite(event)}/>
+                                            <img src={Hearth} id={i} className="pictureFavorite" onClick={() =>this.delToFavorite(game.name.toString())}/>
                                         </div>
                                         <p>{game.description}</p>
                                         <p>

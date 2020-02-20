@@ -14,6 +14,7 @@ export class FavoriteList extends React.Component
     {
         const { favoritesGame } = this.props;
         console.log(favoritesGame);
+        console.log(favoritesGame.toString())
         return (
             <div>
                 <table className="style"> <thead><tr><th>name</th> </tr></thead>
