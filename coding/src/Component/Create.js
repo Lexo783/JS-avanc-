@@ -27,12 +27,23 @@ export class Create extends React.Component {
         return(
             <div>
                 <h3>La création d'un utilisateur</h3>
-                <form onSubmit={ event => this.takeInformation(event) }>
-                    <label> Votre Prénom : <input type="text"/></label> <br/>
-                    <label>Votre Nom : <input type="text" /></label><br/>
-                    <label> Votre date de naissance : <input type="text"/></label><br/>
-                    <label>Votre biographie : <input type="text" /></label><br/>
-                    <label> Votre ville : <input type="text"/></label><br/>
+                <form id="createForm" onSubmit={ event => this.takeInformation(event) }>
+                    <div id="createFormData">
+                    <div id="createTexte">
+                        <label id="createFirstName"> Votre Prénom : </label>
+                        <label id="createLastName">Votre Nom : </label>
+                        <label id="createBirthDate"> Votre date de naissance : </label>
+                        <label id="createBio">Votre biographie : </label>
+                        <label id="createCity"> Votre ville : </label>
+                    </div>
+                    <div id="createUser">
+                        <input for="#createFirstName" type="text"/>
+                        <input for="#createLastName" type="text"/>
+                        <input for="#createBirthDate" type="text"/>
+                        <input for="#createBio" type="text" />
+                        <input for="#createCity" type="text"/>
+                    </div>
+                    </div>
                     <button>valider</button>
                 </form>
             </div>

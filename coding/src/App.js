@@ -33,28 +33,25 @@ export default class App extends React.Component {
   render() {
     return (
         <Provider store={store}>
-
+        <body>
+        <div id="page">
         <Router>
         <div>
           <nav>
-            <ul>
+            <ul  id="navLink">
               <li>
-                <Link to="/">Accueil</Link>
+                <Link to="/" style={{color: "white"}}>Accueil</Link>
               </li>
               <li>
-                <Link to="/create">Creation du compte</Link>
+                <Link to="/create" style={{color: "white"}}>Creation du compte</Link>
               </li>
               <li>
-                <Link to="/favorite">Mes favoris</Link>
+                <Link to="/favorite" style={{color: "white"}}>Mes favoris</Link>
               </li>
               <li>
-                <Link to="/profil">Mon profil</Link>
+                <Link to="/profil" style={{color: "white"}}>Mon profil</Link>
               </li>
             </ul>
-
-            <a href={this.message}>
-              Partager mon profil.
-            </a>
           </nav>
 
 
@@ -76,6 +73,13 @@ export default class App extends React.Component {
 
         </div>
       </Router>
+          <footer>
+          <a href={this.message}>
+            Partager mon profil.
+          </a>
+          </footer>
+        </div>
+        </body>
         </Provider>
     );
   }

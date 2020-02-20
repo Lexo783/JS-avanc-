@@ -15,14 +15,25 @@ export class Profil extends React.Component
         const { users } = this.props;
         return (
             <div>
+                <h3>Votre profil</h3>
                 {users.map((user , index) => {
                         return (
-                            <div key={index}>
-                                <p>Votre prénom:  {user.firstName}</p>
-                                <p>Votre nom:  {user.lastName}</p>
-                                <p>Date de naissance:  {user.birthDate}</p>
-                                <p>Biographie:  {user.bio}</p>
-                                <p>Ville:  {user.city}</p>
+                            <div key={index} id="profil">
+                                <div id="profilTexte">
+                                    <p>Votre prénom:</p>
+                                    <p>Votre nom:</p>
+                                    <p>Date de naissance:</p>
+                                    <p>Biographie:</p>
+                                    <p>Ville:</p>
+                                </div>
+                                <div id="profilUser">
+                                    <p>{user.firstName}</p>
+                                    <p>{user.lastName}</p>
+                                    <p>{user.birthDate}</p>
+                                    <p>{user.bio}</p>
+                                    <p>{user.city}</p>
+                                </div>
+
 
                             </div>
                         );

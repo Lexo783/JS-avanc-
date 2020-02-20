@@ -42,11 +42,7 @@ export default class Search extends React.Component {
   render() {
     return (
       <div className="content">
-        <div className="container">
-          <section className="section">
-                        <List items={this.state.table} delete={this.removeItem} />
-          </section>
-        </div>
+        <List items={this.state.table} delete={this.removeItem} />
       </div>
     );
   }
