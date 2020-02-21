@@ -69,8 +69,6 @@ export default class App extends React.Component {
               <Profil />
             </Route>
           </Switch>
-
-
         </div>
       </Router>
           <footer>
