@@ -1,7 +1,5 @@
 import React from 'react';
-import * as firebase from 'firebase';
-
-import { Provider } from 'react-redux';
+import {connect, Provider} from 'react-redux';
 import { createStore } from 'redux';
 import reducer from './redux/reducers'
 
@@ -11,12 +9,14 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
+  withRouter
 } from "react-router-dom";
+import Home from './Component/Home'
+import FavoriteList from './Component/FavoriteList'
+import Create from './Component/Create'
+import Profil from "./Component/Profil";
 
-import Home from './Component/home'
-import Favoris from './Component/favoris'
-import Create from './Component/create'
 
 const store = createStore(reducer);
 
@@ -24,69 +24,37 @@ const store = createStore(reducer);
 export default class App extends React.Component {
   constructor(props){
     super(props);
-      this.state = {
-      nameState : ''
-    };
-
-
-    // Your web app's Firebase configuration
-    var firebaseConfig = {
-      apiKey: "AIzaSyAjEjmjUPOp7DOHSKe_c0eKDMCgJPeSGqU",
-      authDomain: "coding-9bf47.firebaseapp.com",
-      databaseURL: "https://coding-9bf47.firebaseio.com",
-      projectId: "coding-9bf47",
-      storageBucket: "coding-9bf47.appspot.com",
-      messagingSenderId: "1068534208752",
-      appId: "1:1068534208752:web:327d32d6b56b3c50e88a35",
-      measurementId: "G-8D6TCL0336"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    firebase.analytics();
-      //var app = firebase.initializeApp({...});
+    this.message ="mailto:gwenael.mw@gmail.com?subject= Voici ma liste de jeux favoris sur un site super! &body=" +
+        "Salut! Voici mon profil de jeux avec mes jeux Favoris : http://localhost:3000/favorite , " +
+        "Je t'invite donc a t'inscrire ainsi que de me payer un jeux qui est dans la liste."
   }
-
-  /*
-  *  <script src="https://www.gstatic.com/firebasejs/${JSCORE_VERSION}/firebase.js"></script>
-
-          <script>
-            var app = firebase.initializeApp({
-            apiKey: '<your-api-key>',
-            authDomain: '<your-auth-domain>',
-            databaseURL: '<your-database-url>',
-            projectId: '<your-cloud-firestore-project>',
-            storageBucket: '<your-storage-bucket>',
-            messagingSenderId: '<your-sender-id>'
-          });
-            // ...
-          </script>
-  * */
 
 
   render() {
     return (
         <Provider store={store}>
-          <script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-app.js"></script>
-          <script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-analytics.js"></script>
-
+        <body>
+        <div id="page">
         <Router>
         <div>
           <nav>
-            <ul>
+            <ul  id="navLink">
               <li>
-                <Link to="/">Accueil</Link>
+                <Link to="/" style={{color: "white"}}>Accueil</Link>
               </li>
               <li>
-                <Link to="/create">Creation du compte</Link>
+                <Link to="/create" style={{color: "white"}}>Creation du compte</Link>
               </li>
               <li>
-                <Link to="/favoris">Mes favoris</Link>
+                <Link to="/favorite" style={{color: "white"}}>Mes favoris</Link>
+              </li>
+              <li>
+                <Link to="/profil" style={{color: "white"}}>Mon profil</Link>
               </li>
             </ul>
           </nav>
 
-          {/* A <Switch> looks through its children <Route>s and
-              renders the first one that matches the current URL. */}
+
           <Switch>
             <Route exact path="/">
               <Home />
@@ -94,15 +62,26 @@ export default class App extends React.Component {
             <Route path="/create">
               <Create />
             </Route>
-            <Route path="/favoris">
-              <Favoris />
+            <Route path="/favorite">
+              <FavoriteList />
+            </Route>
+            <Route path="/profil">
+              <Profil />
             </Route>
           </Switch>
-
-
         </div>
       </Router>
+          <footer>
+          <a href={this.message}>
+            Partager mon profil.
+          </a>
+          </footer>
+        </div>
+        </body>
         </Provider>
     );
   }
 }
+
+
+

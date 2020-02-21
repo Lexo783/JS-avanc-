@@ -28,6 +28,7 @@
   color: #61dafb;
 }
 
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -35,4 +36,244 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+h3{
+  text-align: center;
+}
+
+
+#navLink{
+  display: flex;
+  justify-content: space-around;
+}
+#navLink li{
+  list-style: none;
+}
+
+
+#navLink
+{
+  width: 97.25%;
+  background: linear-gradient(rgb(28, 50, 204), rgb(28, 32, 148));
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  box-shadow: 0px 8px 5px rgba(0, 0, 0, 0.15);
+}
+
+
+
+#navLink li {
+  line-height: 50px;
+  color: white;
+  font-size: 20px;
+  font-family: itescia, Arial, Helvetica, sans-serif;
+
+  padding-right: 20px;
+  padding-left: 20px;
+  background: none;
+
+  position: relative;
+  transition-property: background;
+  transition-duration: .5s;
+  transition-timing-function: ease-out;
+
+}
+
+
+#navLink li:hover
+{
+  background: rgb(210, 210, 225);
+  color: black;
+}
+
+#navLink li:visited
+{
+  color: white;
+}
+#navLink li:visited:hover
+{
+  color: black;
+}
+
+#navLink li:active
+{
+  background-color: rgb(170,170, 230);
+  color: black;
+}
+
+
+/*ajoute une barre apparaissant sous le texte*/
+#navLink li:after
+{
+  content: "";
+  position: absolute;
+  bottom: 10px; right: 30px; left: 30px;
+  height: 2px;
+  background: #B13C2E;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all .4s;
+}
+
+#navLink li:hover:after, #navLink li:focus:after
+{
+  background: black;
+  opacity: .6;
+  transform: translateY(0);
+}
+
+#navLink li:focus
+{
+  outline: none;
+}
+
+footer{
+  width: 100%;
+  min-height: 100px;
+  background: linear-gradient(rgb(28, 50, 204), rgb(28, 32, 148));
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  box-shadow: 0px 8px 5px rgba(0, 0, 0, 0.15);
+  margin-top: 50px;
+}
+
+
+body{
+  margin: 0;
+  width: 100%;
+}
+#page{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: space-between;
+}
+
+footer a{
+  color: white;
+}
+
+
+
+
+
+
+.picturesSection{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: flex-start;
+  margin: 20px;
+}
+
+.gameDiv {
+  display: flex;
+  padding-left: 100px;
+  padding-right: 100px;
+  background: rgb(222,222,232);
+  box-shadow: 0px 8px 5px rgba(0, 0, 0, 0.15);
+  transition-property: background, padding-left;
+  transition-duration: .5s;
+  transition-timing-function: ease-out;
+}
+
+.gameDiv:hover{
+  background: rgb(192,192,202);
+  padding-left: 120px;
+}
+
+.gameDiv img{
+  align-self: flex-start;
+}
+.gameDiv p{
+  align-self: center;
+}
+.gameImg{
+  margin: 10px;
+  width: 200px;
+  height: auto;
+}
+.gameTitle{
+  display: flex;
+  justify-content: flex-start;
+}
+.gameTitle img{
+  align-self: center;
+}
+
+#gameList{
+  margin-left: 100px ;
+  margin-right: 100px;
+}
+
+
+.pictureFavorite{
+  width: 20px;
+  height: auto;
+  margin: 5px;
+}
+#listGameInput{
+ display: flex;
+  justify-content: center;
+}
+#listGameInput input{
+  width: 500px;
+}
+
+
+#profil{
+  display: flex;
+  justify-content: center;
+}
+
+#profilTexte{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 20px;
+}
+
+
+#profilUser{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 20px;
+}
+
+
+#createForm{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#createForm button {
+  width: 100px;
+  align-self: center;
+}
+
+#createFormData{
+  display: flex;
+  justify-content: center;
+}
+
+#createTexte{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 20px;
+}
+
+#createUser{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 20px;
 }
