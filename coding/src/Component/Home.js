@@ -22,7 +22,6 @@ export default class Home extends React.Component {
     render(){
         return(
             <div>
-
                 <h3>Voici les images du jours</h3>
                 <Search list={this.state.list}/>
             </div>

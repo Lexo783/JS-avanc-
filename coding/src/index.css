@@ -11,3 +11,110 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.row{
+  display: flex;
+}
+.col{
+  flex-basis: 25%;
+}
+.col-1{
+  flex-basis: 50%;
+}
+.col-2{
+  flex-basis: 75%;
+}
+.col-5{
+  flex-basis: 100%;
+}
+.text-center{
+  text-align: center;
+}
+
+
+
+.display-create{
+  margin: 50px 100px 50px 100px;
+}
+.display-home{
+  margin: 50px 250px 50px 250px;
+}
+.create-form{
+  margin-top: 10px;
+}
+.width-search{
+  width: 200px;
+  height: 25px;
+  padding: 0%;
+}
+.gameDiv{
+  padding: 10px 35px 10px 50px;
+  margin-top: 15px;
+  border-radius: 10% / 50%;
+  border-style: dashed;
+  background-color: snow;
+}
+
+.createAccount{
+    padding: 10px 35px 10px 50px;
+    margin-top: 15px;
+    border-radius: 10% / 50%;
+    border-style: dashed;
+    background-color: snow;
+}
+
+.validate-form{
+  height: 25px;
+  width: 100px;
+}
+.button-lien-right{
+  margin: 20px 20px 10px 5px;
+  color:red !important;
+  text-transform: uppercase;
+  background: whitesmoke;
+  padding: 10px;
+  border: 1px solid black !important;
+  border-radius: 6px;
+  display: inline-block;
+  transition: all 0.3s ease 0s;
+  }
+.button-lien-right:hover {
+  color: #494949 !important;
+  border-radius: 50px;
+  border-color: #494949 !important;
+  transition: all 0.3s ease 0s;
+}
+
+.button-lien{
+  margin: 20px 5px 10px 5px;
+  color:red !important;
+  text-transform: uppercase;
+  background: whitesmoke;
+  padding: 10px;
+  border: 1px solid black !important;
+  border-radius: 6px;
+  display: inline-block;
+  transition: all 0.3s ease 0s;
+}
+.button-lien:hover {
+  color: #494949 !important;
+  border-radius: 50px;
+  border-color: #494949 !important;
+  transition: all 0.3s ease 0s;
+}
+.button-lien-left{
+  margin: 20px 5px 10px 20px;
+  color:red !important;
+  text-transform: uppercase;
+  background: whitesmoke;
+  padding: 10px;
+  border: 1px solid black !important;
+  border-radius: 6px;
+  display: inline-block;
+  transition: all 0.3s ease 0s;
+}
+.button-lien-left:hover {
+  color: #494949 !important;
+  border-radius: 50px;
+  border-color: #494949 !important;
+  transition: all 0.3s ease 0s;
+}

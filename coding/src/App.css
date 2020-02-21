@@ -142,6 +142,7 @@ footer{
   justify-content: center;
   align-content: center;
   box-shadow: 0px 8px 5px rgba(0, 0, 0, 0.15);
+  margin-top: 50px;
 }
 
 
@@ -175,6 +176,10 @@ footer a{
 
 .gameDiv {
   display: flex;
+  padding-left: 100px;
+  padding-right: 100px;
+  background: rgb(222,222,232);
+
 }
 .gameDiv img{
   align-self: flex-start;
@@ -194,6 +199,12 @@ footer a{
 .gameTitle img{
   align-self: center;
 }
+
+#gameList{
+  margin-left: 100px ;
+  margin-right: 100px;
+}
+
 
 .pictureFavorite{
   width: 20px;

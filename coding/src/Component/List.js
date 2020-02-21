@@ -95,6 +95,7 @@ export class List extends React.Component {
                 <div id="listGameInput">
                 <input  type="text" className="input" onChange={this.handleChange} placeholder="Search..." />
                 </div>
+                <div id="gameList">
                     {this.state.filtered.map((game, i) => {
                         return (
                             <div key={i} className="gameDiv">
@@ -119,6 +120,7 @@ export class List extends React.Component {
                         )
                     })
                     }
+                </div>
 
             </div>
         )
