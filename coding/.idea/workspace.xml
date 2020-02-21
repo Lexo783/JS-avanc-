@@ -4,9 +4,7 @@
     <list default="true" id="085be880-3251-48bf-8ba1-0a28e6eb6ea5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Component/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Component/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Component/List.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Component/List.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/TableGame.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/TableGame.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +58,7 @@
       <option name="presentableId" value="Default" />
       <updated>1582143375394</updated>
       <workItem from="1582143377264" duration="35095000" />
-      <workItem from="1582236360818" duration="5651000" />
+      <workItem from="1582236360818" duration="7961000" />
     </task>
     <servers />
   </component>
@@ -72,5 +70,9 @@
       <screen x="0" y="23" width="1440" height="812" />
     </state>
     <state x="438" y="173" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.812@0.23.1440.812" timestamp="1582233602086" />
+    <state x="387" y="159" width="670" height="676" key="search.everywhere.popup" timestamp="1582274473674">
+      <screen x="0" y="23" width="1440" height="812" />
+    </state>
+    <state x="387" y="159" width="670" height="676" key="search.everywhere.popup/0.23.1440.812@0.23.1440.812" timestamp="1582274473674" />
   </component>
 </project>

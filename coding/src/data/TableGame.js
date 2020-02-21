@@ -6,7 +6,13 @@ import ResidentEvil from "../pictures/resident_evil_3.jpg";
 import Skyrim from "../pictures/skyrim.jpg";
 import Witcher3 from "../pictures/witcher 3.jpg";
 import ZeldaBOTW from "../pictures/zelda_BOTW.jpg";
-
+import Death_Stranding from "../pictures/Death_Stranding.png"
+import Minecraft from "../pictures/minecraft.jpg"
+import LastOfUs from "../pictures/last_of_us.jpg"
+import MoonLighter from "../pictures/moonLighter.jpg"
+import Civilization from "../pictures/civilization-VI.jpg"
+import SmashBros from "../pictures/smashBros.jpg"
+import  DeadCells from "../pictures/deadCells.jpg"
 
 export default [
     {
@@ -75,5 +81,60 @@ export default [
             "Le titre a été pensé pour que le joueur puisse aller où il veut dès le début, " +
             "s'éloignant de la linéarité habituelle de la série.",
         genre: "Action | Aventure | RPG", date: "03 mars 2017"
+    },
+    {
+        name: "Death Stranding",  cover: Death_Stranding,
+        description: "Death Stranding est un jeu d'action dans lequel la mort fait partie intégrante du gameplay." +
+            " La mort est un des thèmes principaux, et les développeurs ont fait en sorte que les joueurs " +
+            "ne la voient pas comme une fin. L'histoire s'annonce sombre dans cet univers futuriste et fantastique.",
+        genre: "Action", date: "08 novembre 2019"
+    },
+    {
+        name: "Minecraft",  cover: Minecraft,
+        description: "Minecraft est un dit \"jeu bac à sable\" sur PC, qui permet à l'utilisateur de façonner" +
+            " l'univers qui l'entoure dans les seules limites de son imagination. " +
+            "La version bêta actuelle parachute le joueur dans un monde généré aléatoirement et dynamiquement," +
+            " où il doit survivre en exploitant les ressources environnantes.",
+        genre: "Création | Open World | Sandbox | Survie", date: "18 novembre 2011"
+    },
+    {
+        name: "The Last of Us",  cover: LastOfUs,
+        description: "The Last of Us Remastered est un survival action sur PS4 qui raconte " +
+            "l'histoire de Joel et d'Ellie qui vont devoir s'entraider pour survivre face à une mystérieuse " +
+            "peste qui a décimé les Etats-Unis. La nature commence à s'approprier les villes abandonnées " +
+            "et les quelques survivants s'entre-tuent pour récupérer le peu de nourriture et d'armes encore présentes." +
+            " Cette version améliorée du jeu propose l'aventure de base et le DLC Left Behind.",
+        genre: "Post-apocalyptique | Zombies | Contemporain | Comics", date: "29 juillet 2014"
+    },
+    {
+        name: "Moonlighter",  cover: MoonLighter,
+        description: "Moonlighter est un action RPG où de mystérieuses portes ont été découvertes" +
+            " lors d'une excavation. Les gens se sont vite rendu compte qu'il s'agissait d'anciens passages" +
+            " permettant de voyager entre des royaumes ou des dimensions. " +
+            "Rynoka, un petit village commercial, a été découvert près du lieu d'excavation, " +
+            "permettant aux différents voyageurs de se ravitailler avant d'entrer dans les portails.",
+        genre: "Action | Aventure | RPG | Action RPG", date: "29 mai 2018"
+    },
+    {
+        name: "Civilization VI",  cover: Civilization,
+        description: "Civilization VI est un jeu de stratégie proposant au joueur de régner en maître" +
+            " sur le monde au fil des siècles. C'est le sixième opus de la saga reconnue des Sid Meier's " +
+            "Civilization. Civilization VI renouvelle les codes de la licence : développez votre empire " +
+            "à travers la carte, faites progresser votre culture et tenez tête aux plus grands dirigeants de l'histoire.",
+        genre: "Gestion | Stratégie | 4X", date: "21 octobre 2016"
+    },
+    {
+        name: "Super Smash Bros Ultimate ",  cover: SmashBros,
+        description: "Super Smash Bros Ultimate est un jeu de combat sur Switch. " +
+            "Cet opus Ultimate regroupe l'intégralité des combattants déjà apparus dans l'histoire de Super Smash Bros." +
+            " 75 personnages jouables seront disponibles en comptant le dresseur, ainsi que tous ses Pokémon.\n",
+        genre: "Combat", date: "07 décembre 2018"
+    },
+    {
+        name: "Dead Cells",  cover: DeadCells,
+        description: "Dead Cells est un jeu d'action-aventure de type plate-forme avec des éléments de rogue-like." +
+            " Le joueur doit explorer un château et résister à des hordes de zombies et de monstres." +
+            " Pour ce faire, vous pouvez utiliser votre fouet et différentes armes en plus de la magie.",
+        genre: "Action | Aventure | RPG | Roguelike | Plate-Forme", date: "07 août 2018"
     },
 ]

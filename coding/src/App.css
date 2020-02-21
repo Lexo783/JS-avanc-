@@ -72,7 +72,6 @@ h3{
   font-size: 20px;
   font-family: itescia, Arial, Helvetica, sans-serif;
 
-
   padding-right: 20px;
   padding-left: 20px;
   background: none;
@@ -179,8 +178,17 @@ footer a{
   padding-left: 100px;
   padding-right: 100px;
   background: rgb(222,222,232);
-
+  box-shadow: 0px 8px 5px rgba(0, 0, 0, 0.15);
+  transition-property: background, padding-left;
+  transition-duration: .5s;
+  transition-timing-function: ease-out;
 }
+
+.gameDiv:hover{
+  background: rgb(192,192,202);
+  padding-left: 120px;
+}
+
 .gameDiv img{
   align-self: flex-start;
 }
