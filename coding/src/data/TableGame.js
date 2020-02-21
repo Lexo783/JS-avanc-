@@ -13,6 +13,8 @@ import MoonLighter from "../pictures/moonLighter.jpg"
 import Civilization from "../pictures/civilization-VI.jpg"
 import SmashBros from "../pictures/smashBros.jpg"
 import  DeadCells from "../pictures/deadCells.jpg"
+import Anno1800 from "../pictures/anno1800.jpg"
+
 
 export default [
     {
@@ -137,4 +139,11 @@ export default [
             " Pour ce faire, vous pouvez utiliser votre fouet et différentes armes en plus de la magie.",
         genre: "Action | Aventure | RPG | Roguelike | Plate-Forme", date: "07 août 2018"
     },
+    {
+        name: "Anno 1800",  cover: Anno1800,
+        description: "Anno 1800 sur PC est un jeu de gestion qui se déroule au 19ème siècle," +
+            " à l'aube de l'ère industrielle. Comme d'habitude, le jeu propose de mettre vos talents de dirigeant" +
+            " à l'épreuve dans la construction de métropoles pour par la suite explorer et conquérir des terres nouvelles.",
+        genre: "Gestion", date: "16 avril 2019"
+    }
 ]
